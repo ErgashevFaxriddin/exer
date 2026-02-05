@@ -99,3 +99,20 @@ while True:
 
 conn.close()
 print("Data entry finished!")
+# ------------------------------------------------------------------------
+import _sqlite3
+
+conn = sqlite3.connect('people1.db')
+c = conn.cursor()
+
+c.execute('''
+    CREATE TABLE IF NOT EXISTS people1(
+    first_name TEXT,
+    last_name TEXT,
+    age INTEGER,
+    
+    
+    )
+    
+
+''')
