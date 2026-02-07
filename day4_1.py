@@ -1,13 +1,17 @@
+saved_username = 'admin'
+saved_password = 'admin1234'
+
+max_attempts = 3
+attempts = 0
+
 def login_check(username, password):
-    saved_username = 'admin'
-    saved_password = 'admin1234'
 
     if username == saved_username and password == saved_password:
         return True
     else:
         return False
 
-while True:
+while attempts < max_attempts:
     user = input('LOGIN: ')
     pwd = input('PASSWORD: ')
 
@@ -15,4 +19,11 @@ while True:
         print('LOGGED IN SUCCESSFULLY!')
         break
     else:
-        print('WRONG USER OR PASSWORD')
+        attempts += 1
+        print(max_attempts - attempts, 'ATTEMPTS LEFT')
+        if attempts == 1:
+            print('max_attempts - attempts', 'ATTEMPT LEFT')
+
+        print('LOG IN FAILED\nTRY AGAIN: ')
+if attempts == max_attempts:
+    print('TOO MANY FAILED ATTEMPTS\nTRY AGAIN LATER')
