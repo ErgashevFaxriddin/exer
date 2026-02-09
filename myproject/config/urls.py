@@ -1,5 +1,14 @@
+from django.contrib import admin
+from django.urls import path
+from main.views import home   # import your home view
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', home),  # root URL will show your "Hello Django"
+]
+
 """
-URL configuration for myproject project.
+URL configuration for config project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.0/topics/http/urls/
